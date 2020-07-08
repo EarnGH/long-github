@@ -1,14 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>This is the title of the webpage!</title>
+  <head>    
   </head>
   <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
 
-    <button>click here</button>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="exec('python C-F.py');">
-
+    <script>
+        function goPython(){
+            $.ajax({
+              url: "print.py",
+             context: document.body
+            }).done(function() {
+             alert('finished python script');;
+            });
+        }
+    </script>
   </body>
 </html>
